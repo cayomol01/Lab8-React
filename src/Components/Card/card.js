@@ -1,10 +1,11 @@
 /*create a card component with hooks*/
 import React, { useState, useEffect } from 'react';
 import flip_audio from '../../Assets/card_flip.mp3';
+import back from '../../Assets/Back.png';
 import './card.css';
 
 
-export default function Card() {
+export default function Card({image}) {
 
     const [card, setCard] = useState(false);
     const audio = new Audio(flip_audio);
@@ -18,14 +19,20 @@ export default function Card() {
         setCard(!card)
 
     }
+    
+    const backStyle={
+            backgroundImage:`url(${back})`,
+            backgroundSize: 'cover',
+            };
 
     
     return (
         <>
+        
             <div className="card-container">
                 <div className={`card ${card ? 'is-flipped': ''}`} onClick={flip}>
-                    <div className="carta card_back">Back</div>
-                    <div className="carta card_front">Front</div>
+                    <div className="carta card_back" style = {backStyle}></div>
+                    <div className="carta card_front"></div>
                 </div>
             </div>
         </>

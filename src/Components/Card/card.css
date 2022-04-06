@@ -46,3 +46,7 @@ background-color: blue;
 transform: rotateY(-180deg);
 
 }
+
+h1{
+  font-size: 50px;
+}
