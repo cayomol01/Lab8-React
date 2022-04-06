@@ -1,0 +1,14 @@
+.board {
+    margin: 0 auto;
+    width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+    align-self: center;
+}
+
+h1{
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+

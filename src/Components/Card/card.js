@@ -1,33 +1,31 @@
 /*create a card component with hooks*/
 import React, { useState, useEffect } from 'react';
+import flip_audio from '../../Assets/card_flip.mp3';
 import './card.css';
 
 
 export default function Card() {
 
-    const [flipped, setFlipped] = useState(false);
-    const [card, setCard] = useState('card');
+    const [card, setCard] = useState(false);
+    const audio = new Audio(flip_audio);
 
     /*Create a function that changes the card className to "flipped"*/
     const flip = ($event) => {
         $event.preventDefault();
-        let temp = card;
-        if (temp === 'card is-flipped') {
-            setCard('card');
+        if(card===false){
+            audio.play();
         }
-        else{
-            setCard('card is-flipped');
-        }
-        console.log('clicked')
+        setCard(!card)
+
     }
 
     
     return (
         <>
             <div className="card-container">
-                <div className={card} onClick={flip}>
-                    <div className="carta card_front">Front</div>
+                <div className={`card ${card ? 'is-flipped': ''}`} onClick={flip}>
                     <div className="carta card_back">Back</div>
+                    <div className="carta card_front">Front</div>
                 </div>
             </div>
         </>
