@@ -1,0 +1,10 @@
+
+body{
+    display: block;
+}
+
+body::before{
+    background-image: url('images/85de8af007c387671807bdec85439c8a.gif') no-repeat cover;
+    height: 100vh;
+    opacity: 100%;
+}
