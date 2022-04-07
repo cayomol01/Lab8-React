@@ -15,52 +15,36 @@ import './Board.css';
 export default function Board() {
 
     const images = [Abreath,Leave,Panda,Accompany,Pendulum,Genie]
+    let deck = [0,0,1,1,2,2,3,3,4,4,5,5]
 
-    const [turned, flip] = useState(false);
 
-    const [carta,setCarta] = useState({
-      image: Leave,
-      flipped: false,
-      found: false,
-    });
-    
-    const audio = new Audio(flip_audio);
+    /*Fisher Yates algorithm*/
 
-    const flipping = ($event) => {
-      $event.preventDefault();
-
-      let temp = carta.flipped
-      let temp_image = carta.image
-      let temp_found = carta.found
-
-      setCarta({
-        image:temp_image,
-        flipped:!temp,
-        found:temp_found
-
-      })
-      audio.play();
+    const shuffleArray = (array) => {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+      }
+      return array;
     }
+
+    deck = shuffleArray(deck)
+    deck = deck.map((x)=> (
+      images[x]
+    ))
 
 
 
     return (
       <>
       <h1>MEMORIA</h1>
+      <h2 className = 'turnos'>Turnos: 0</h2>
         <div className="board">
-            <Card image = {carta.image} flipped = {carta.flipped} func = {flipping}/>
-            <Card image = {Abreath}/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <h1></h1>
+        {deck.map((x)=> (
+            <Card image={x} index = {deck.indexOf(x)}/>))
+            }
         </div> 
       </>
     );
