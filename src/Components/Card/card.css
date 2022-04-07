@@ -33,7 +33,7 @@
   }
 
 .card_front{
-background-color: red;
+background-color: green;
 transform: rotateY( 180deg );
 }
 
