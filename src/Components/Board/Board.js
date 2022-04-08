@@ -1,23 +1,22 @@
-import React, {useState, useEffect} from 'react';
-import Gon from '../../Assets/AngeredGon.jpg';
+import React from 'react';
 import Abreath from '../../Assets/ABreath.jpg';
 import Leave from '../../Assets/Leave.png';
 import Panda from '../../Assets/Panda.jpg';
 import Accompany from '../../Assets/Accompany.jpg';
 import Pendulum from '../../Assets/Pendulum.png';
-import Genie from '../../Assets/Genie.png';
+import Golden from '../../Assets/Golden.jpg';
 import Card from '../Card/card'; 
 import Logo from '../../Assets/HunterLogo.png';
-import flip_audio from '../../Assets/card_flip.mp3';
 
 import './Board.css';
 
 
+
+
 export default function Board() {
 
-    const images = [Abreath,Leave,Panda,Accompany,Pendulum,Genie]
+    const images = [Abreath,Leave,Panda,Accompany,Pendulum,Golden]
     let deck = [0,0,1,1,2,2,3,3,4,4,5,5]
-    let logos = new Image(Logo)
 
 
     /*Fisher Yates algorithm*/

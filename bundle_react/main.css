@@ -33,7 +33,7 @@
   }
 
 .card_front{
-background-color: green;
+background-color: rgba(0, 0, 0, 0);
 transform: rotateY( 180deg );
 }
 
@@ -63,10 +63,15 @@ h1{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
+    margin-bottom: 5px;
+    max-height: 40%;
 }
 .turnos{
-    text-align: center;
+    text-align: left;
+    position:absolute;
+    margin-left: 10px;
+    top: 50%;
+    font-size: 30px;
     color: rgb(255, 255, 255);
 }
 

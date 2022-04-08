@@ -9,8 +9,9 @@ import './main.css'
 document.body.style.backgroundImage = `url(${fondo})`
 const tema = new Audio(theme);
 tema.volume = 0.02;
-tema.play()
 tema.loop = true;
+tema.autoplay = true;
+
 
 reactDom.render(
     <Board/>,
