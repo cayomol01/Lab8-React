@@ -1,10 +1,81 @@
 
-body{
-    display: block;
+.card-container {
+    width: 225px;
+    height: 325px;
+    margin-right: 5px;
+    margin-left: 5px;
+    perspective: 600px;
+  }
+
+.card{
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    border-radius: 20px;
 }
 
-body::before{
-    background-image: url('images/85de8af007c387671807bdec85439c8a.gif') no-repeat cover;
-    height: 100vh;
-    opacity: 100%;
+.carta {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 260px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 20px;
+
+  }
+
+.card_front{
+background-color: green;
+transform: rotateY( 180deg );
 }
+
+.card_back{
+background-color: blue;
+
+}
+
+.card.is-flipped {
+transform: rotateY(-180deg);
+
+}
+
+h1{
+  font-size: 50px;
+}
+.board {
+    margin: 0 auto;
+    width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+    align-self: center;
+}
+
+.logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+.turnos{
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+ 
+
+
+body{
+    background-image: url(8564c0e696456173f57f.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
