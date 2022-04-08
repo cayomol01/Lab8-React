@@ -7,6 +7,7 @@ import Accompany from '../../Assets/Accompany.jpg';
 import Pendulum from '../../Assets/Pendulum.png';
 import Genie from '../../Assets/Genie.png';
 import Card from '../Card/card'; 
+import Logo from '../../Assets/HunterLogo.png';
 import flip_audio from '../../Assets/card_flip.mp3';
 
 import './Board.css';
@@ -16,6 +17,7 @@ export default function Board() {
 
     const images = [Abreath,Leave,Panda,Accompany,Pendulum,Genie]
     let deck = [0,0,1,1,2,2,3,3,4,4,5,5]
+    let logos = new Image(Logo)
 
 
     /*Fisher Yates algorithm*/
@@ -39,7 +41,7 @@ export default function Board() {
 
     return (
       <>
-      <h1>MEMORIA</h1>
+      <img className = "logo" src = {`${Logo}`}/>
       <h2 className = 'turnos'>Turnos: 0</h2>
         <div className="board">
         {deck.map((x)=> (

@@ -1,6 +1,7 @@
 /*create a card component with hooks*/
 import React, { useState, useEffect } from 'react';
 import flip_audio from '../../Assets/card_flip.mp3';
+import correct from '../../Assets/correct.mp3';
 import back from '../../Assets/Back.png';
 import './card.css';
 
@@ -10,7 +11,7 @@ let clicked = []
 let same = []
 let comparador = []
 let contador = 0
-
+let nice = new Audio(correct);
 export default function Card({image,index}) {
     const [card, setCard] = useState(false);
     const [pointer, setPointer] =  useState({
@@ -60,9 +61,7 @@ export default function Card({image,index}) {
             console.log(flipped.id)
             console.log(same[0])
             console.log(same[0]-flipped.id === 0)
-            if(same.includes(parseInt(flipped.id))){
-            }
-            else{
+            if(!same.includes(parseInt(flipped.id))){
                 flipped.className = 'card';
             }
         });
@@ -71,18 +70,17 @@ export default function Card({image,index}) {
 
     const match = (arr) =>{
         if(arr[0]===arr[1]){
-            console.log(arr)
             same.push(parseInt(arr[0]))
             same.push(parseInt(arr[1]))
-            console.log(same)
+            nice.play();
             if (same.length === 12){
-                alert('¡Ganaste!')
+                setTimeout(alert,1000,"Felicidades, has ganado!")
             }
             clicked = []
         }
 
         else{
-            setTimeout(revert,2000,false)
+            setTimeout(revert,1000,false)
             clicked = []
 
         }

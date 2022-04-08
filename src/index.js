@@ -10,13 +10,11 @@ document.body.style.backgroundImage = `url(${fondo})`
 const tema = new Audio(theme);
 tema.volume = 0.02;
 tema.play()
-
 tema.loop = true;
 
 reactDom.render(
     <Board/>,
     document.getElementById("root"),
-
 
 );
 
