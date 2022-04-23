@@ -4,18 +4,21 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: "development",
-  entry: "./src/index.js",
+  entry: "./src/index.jsx",
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "bundle_react"),
   },
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].css"
+      filename: "[name].css",
     }),
     new HtmlWebpackPlugin({
-      template: "./src/index.html"
-    })
+      template: "./src/index.html",
+    }),
   ],
   module: {
     rules: [
@@ -24,20 +27,20 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
-        test: /\.m?js$/,
+        test: /\.m?jsx$/,
         exclude: /(node_modules)/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        }
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+          },
+        },
       },
       {
         test: /\.(png|jpe?g|gif|mp4|mp3|webp)$/i,
-        loader: 'file-loader',
+        loader: "file-loader",
         options: {
-          outputPath: 'assets',
+          outputPath: "assets",
         },
       },
     ],
